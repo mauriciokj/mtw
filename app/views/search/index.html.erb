@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Palavras</h1>
+<table>
+  <%= form_with  url: "/search", method: :get do |form| %>
+  <tr>
+    <th>
+    <%= text_field(:search, :'0', :size=>"5", value: params[:search][:'0']) %></th>
+    <th><%= text_field(:search, :'1', :size=>"5", value: params[:search][:'1']) %></th>
+    <th><%= text_field(:search, :'2', :size=>"5", value: params[:search][:'2']) %></th>
+    <th><%= text_field(:search, :'3', :size=>"5", value: params[:search][:'3']) %></th>
+    <th><%= text_field(:search, :'4', :size=>"5", value: params[:search][:'4']) %></th>
+  </tr>
+  <tr>
+
+    <th colspan="5">
+    <%= label(:search, :exclude, 'Não contem as letras') %>
+    <%= text_field(:search, :'exclude', :size=>"50", value: params[:search][:exclude]) %></th>
+  </tr>
+  <tr>
+    <th colspan="5"><%= form.submit "Search" %></th>
+  </tr>
+  
+<% end %>
+  
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>Palavra</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Word', new_word_path %>
