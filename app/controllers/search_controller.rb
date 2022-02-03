@@ -4,15 +4,19 @@ class SearchController < ApplicationController
     if params[:search].present?
       words = @words
       search = search_params.reject { |k| search_params[k].blank? }.to_h.except(:exclude)
-      
-      @words = words.select { |w| eval(search.map{|k,v| "w[#{k}] == '#{v}'"}.join(' && ')) }
+
+      @words = words.select { |w| eval(search.map { |k, v| "w[#{k}] == '#{v}'" }.join(' && ')) }
 
       if search_params[:exclude].present?
-        @words = @words.select{ |w| eval(search_params[:exclude].split.map{|x|  "!w.include?('#{x}')"}.join(' && ')) }
+        @words = @words.select do |w|
+          eval(search_params[:exclude].split("").map do |x|
+                 "!w.include?('#{x}')"
+               end.join(' && '))
+        end
       end
 
     end
-    
+
     @words
   end
 
