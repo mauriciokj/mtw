@@ -1,25 +1,6 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# mtw
+<a href="https://www.youtube.com/watch?v=1ISYT6EeUM0" title="MTW">
+  <p align="center">
+    <img width="75%" src="https://img.youtube.com/vi/1ISYT6EeUM0/maxresdefault.jpg" alt="MTW"/>
+  </p>
+</a>
