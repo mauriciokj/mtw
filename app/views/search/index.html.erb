@@ -1,21 +1,40 @@
 <p id="notice"><%= notice %></p>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+table, th, td {
+  text-align: center;
+}
+</style>
 
-<h1>Palavras</h1>
+<h1>More Than words</h1>
+<div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1ISYT6EeUM0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 <table>
   <%= form_with  url: "/search", method: :get do |form| %>
   <tr>
     <th>
-    <%= text_field(:search, :'0', :size=>"5", value: (params[:search].present? ?  params[:search][:'0'] : '')) %></th>
+    <%= label(:search, :exclude, 'Letras') %>
+    </th>
+  </tr>
+  <tr>
+    <th><%= text_field(:search, :'0', :size=>"5", value: (params[:search].present? ?  params[:search][:'0'] : '')) %></th>
     <th><%= text_field(:search, :'1', :size=>"5", value: (params[:search].present? ?  params[:search][:'1'] : '')) %></th>
     <th><%= text_field(:search, :'2', :size=>"5", value: (params[:search].present? ?  params[:search][:'2'] : '')) %></th>
     <th><%= text_field(:search, :'3', :size=>"5", value: (params[:search].present? ?  params[:search][:'3'] : '')) %></th>
     <th><%= text_field(:search, :'4', :size=>"5", value: (params[:search].present? ?  params[:search][:'4'] : '')) %></th>
   </tr>
   <tr>
-
     <th colspan="5">
     <%= label(:search, :exclude, 'Não contem as letras') %>
     <%= text_field(:search, :'exclude', :size=>"50", value: (params[:search].present? ?  params[:search][:exclude] : '')) %></th>
+  </tr>
+  <tr>
+    <th colspan="5">
+    <%= label(:search, :include_words, 'Contem as letras fora de ordem') %>
+    <%= text_field(:search, :'include_words', :size=>"50", value: (params[:search].present? ?  params[:search][:include_words] : '')) %></th>
   </tr>
   <tr>
     <th colspan="5"><%= form.submit "Search" %></th>
